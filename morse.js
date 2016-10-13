@@ -3,6 +3,12 @@ const string = args.join(" ").toLowerCase();
 //enter any amount of arguments in terminal window
 
 function morseConverter(stringIn, morseCallback) {
+  //check if stringIn is being entered as an array,
+  //if process.argv is not being utilized
+  if(stringIn instanceof Array) {
+    stringIn = stringIn.join(" ");
+  }
+
   convertedString = "";
   for(let i = 0; i < stringIn.length; i++){
     let currentChar = stringIn.charAt(i);
@@ -21,5 +27,4 @@ function findMorseMatch(charIn) {
   //else return an unsupported char
   return charIn;
 }
-
 console.log(morseConverter(string, findMorseMatch));
