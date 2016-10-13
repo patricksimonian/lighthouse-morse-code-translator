@@ -8,13 +8,18 @@ function morseConverter(stringIn, morseCallback) {
   if(stringIn instanceof Array) {
     stringIn = stringIn.join(" ");
   }
-
-  convertedString = "";
-  for(let i = 0; i < stringIn.length; i++){
-    let currentChar = stringIn.charAt(i);
-    convertedString += morseCallback(currentChar);
+  //error handle incase future use of module
+  // gives possibility for incorrect type insertion
+  if(typeof stringIn === "string") {
+    convertedString = "";
+    for(let i = 0; i < stringIn.length; i++){
+      let currentChar = stringIn.charAt(i);
+      convertedString += morseCallback(currentChar);
+    }
+    return convertedString;
+  } else {
+    return "Please Enter Valid String";
   }
-  return convertedString;
 }
 
 function findMorseMatch(charIn) {
@@ -28,3 +33,4 @@ function findMorseMatch(charIn) {
   return charIn;
 }
 console.log(morseConverter(string, findMorseMatch));
+console.log(typeof "Asdfas");
