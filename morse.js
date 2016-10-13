@@ -33,4 +33,3 @@ function findMorseMatch(charIn) {
   return charIn;
 }
 console.log(morseConverter(string, findMorseMatch));
-console.log(typeof "Asdfas");
